@@ -1,6 +1,6 @@
 package Empresas;
 
-import Vehículos.Vehiculo;
+import Vehiculos.Vehiculo;
 
 public class Conductor extends Empleado{
     private int puntuacion;

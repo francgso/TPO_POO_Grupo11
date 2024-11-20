@@ -74,7 +74,7 @@ public class Viaje {
 
         }
         else{
-            throw new FlotaException("No existe una tarifa debido a que no se ha podido inicializar el viaje");
+            throw new FlotaException("No existe una tarifa debido a que no se ha podido inicializar el viaje.\n");
         }
     }
 }

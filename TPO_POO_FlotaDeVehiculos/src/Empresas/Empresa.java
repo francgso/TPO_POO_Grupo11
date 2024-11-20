@@ -11,13 +11,18 @@ public class Empresa {
     private ArrayList<Conductor> conductores = new ArrayList<Conductor>();
     private Mecanico mecanico;
 
-    public void aniadirConductor (Conductor conductor){
-        conductores.add(conductor);
+    public void aniadirConductor (Conductor conductor) throws FlotaException{
+        if (!conductores.contains(conductor)) {
+            conductores.add(conductor);
+        }
+        else{
+            throw new FlotaException("El conductor '"+ conductor.getNombre() +"' ya es parte de la empresa./n");
+        }
     }
 
     public void eliminarConductor (Conductor conductor) throws FlotaException {
         if (!conductores.remove(conductor)) {
-            throw new FlotaException("El conductor seleccionado no es parte de la empresa.");
+            throw new FlotaException("El conductor seleccionado no es parte de la empresa.\n");
         }
     }
 
@@ -26,7 +31,7 @@ public class Empresa {
         if (mecanico!=null){
             this.mecanico = mecanico;
         }else{
-            throw new FlotaException("Primero se debe despedir al Mecanico que esta en el empresa");
+            throw new FlotaException("Primero se debe despedir al mecanico que esta en el empresa.\n");
         }
 
     }

@@ -29,7 +29,7 @@ public class Cliente {
             empresa.asignacionConductor(viaje);
             this.viajeInicializado = viaje;
         } else{
-            throw new FlotaException("Ya has inicializado un viaje. Debes de finalizarlo antes de comenzar otro.");
+            throw new FlotaException("Ya has inicializado un viaje. Debes de finalizarlo antes de comenzar otro.\n");
         }
 
     }

@@ -5,11 +5,6 @@ import java.util.ArrayList;
 
 public class Imprimir {
 
-    //Estamos probando
-    public void mostrar(String mensaje){
-        System.out.println(mensaje);
-    }
-
     public void mostrarRankingPuntos(ArrayList <Conductor> copia, String mensaje){
         System.out.println(mensaje);
         System.out.printf("%-10s %-20s %-10s%n", "POSICIÓN", "NOMBRE", "PUNTOS");
