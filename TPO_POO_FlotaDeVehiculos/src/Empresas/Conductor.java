@@ -1,5 +1,5 @@
 package Empresas;
-
+import Excepciones.FlotaException;
 import Vehiculos.Vehiculo;
 
 public class Conductor extends Empleado{
@@ -7,11 +7,22 @@ public class Conductor extends Empleado{
     private Vehiculo vehiculo;
     private int cantViajes;
 
-    public Conductor(String nombre, Vehiculo vehiculo) {
+    public Conductor(String nombre) {
         super(nombre);
-        this.vehiculo = vehiculo;
         this.cantViajes = 0;
     }
+
+    public void asignarVehiculo(Vehiculo vehiculo) throws FlotaException {
+        if (!vehiculo.getTieneDuenio() && this.vehiculo == null) {
+            this.vehiculo = vehiculo;
+            vehiculo.setTieneDuenio(true);
+        } else if (this.vehiculo != null){
+            throw new FlotaException("Este conductor ya es dueño de un vehículo.");
+        }else{
+            throw new FlotaException("Este vehiculo ya tiene dueño.");
+        }
+    }
+
 
     public Vehiculo getVehiculo(){
         return vehiculo;

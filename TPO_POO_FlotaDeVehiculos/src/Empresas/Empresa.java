@@ -12,12 +12,15 @@ public class Empresa {
     private Mecanico mecanico;
 
     public void aniadirConductor (Conductor conductor) throws FlotaException{
-        if (!conductores.contains(conductor)) {
+        if (!conductores.contains(conductor) && conductor.getVehiculo() != null) {
             conductores.add(conductor);
         }
-        else{
-            throw new FlotaException("El conductor '"+ conductor.getNombre() +"' ya es parte de la empresa./n");
+        else if (conductor.getVehiculo() != null){
+            throw new FlotaException("El conductor '"+ conductor.getNombre() +"' ya es parte de la empresa.\n");
+        }else{
+            throw new FlotaException("El conductor '"+ conductor.getNombre() +"' no tiene vehículo.\n");
         }
+
     }
 
     public void eliminarConductor (Conductor conductor) throws FlotaException {
@@ -108,7 +111,7 @@ public class Empresa {
                 conductorCandidato.setDisponibilidad(false);
                 band=1;
             //Si el conductor no pudo aceptar el viaje porque su vehículo está en mal estado, es enviado al mecánico
-            }else if (conductorCandidato.getVehiculo().getEstado() <= 40) {
+            }else if (conductorCandidato.getVehiculo().getEstado() <= 40 && this.mecanico != null) {
                 mecanico.arreglar(conductorCandidato);
             }
             i++;

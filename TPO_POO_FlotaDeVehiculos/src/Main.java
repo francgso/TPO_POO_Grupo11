@@ -24,7 +24,12 @@ public class Main {
 
 
         Moto kawasaki = new Moto("aaa", 1, 40, 99);
-        Conductor mario = new Conductor("Mario", kawasaki);
+        Conductor mario = new Conductor("Mario");
+        try{
+            mario.asignarVehiculo(kawasaki);
+        }catch(FlotaException e){
+            System.out.println(e.getMessage());
+        }
         try {
             splinterVehiculos.aniadirConductor(mario);
         } catch (FlotaException e){
@@ -33,7 +38,13 @@ public class Main {
 
 
         Moto tornado = new Moto("eee",  1, 40, 100);
-        Conductor tomas= new Conductor("Tomas", tornado);
+        Conductor tomas= new Conductor("Tomas");
+        try{
+            tomas.asignarVehiculo(tornado);
+        }catch(FlotaException e){
+            System.out.println(e.getMessage());
+        }
+
         try {
             splinterVehiculos.aniadirConductor(tomas);
         } catch (FlotaException e){
@@ -42,7 +53,12 @@ public class Main {
 
 
         Moto sanela = new Moto("aws456fgh", 1, 40, 100);
-        Conductor facundo = new Conductor("Facundo", sanela);
+        Conductor facundo = new Conductor("Facundo");
+        try{
+            facundo.asignarVehiculo(sanela);
+        }catch(FlotaException e){
+            System.out.println(e.getMessage());
+        }
         try {
             splinterVehiculos.aniadirConductor(facundo);
         } catch (FlotaException e){
@@ -50,8 +66,14 @@ public class Main {
         }
 
 
+
         Auto palio = new Auto("ab 123 cd", 4, 100,true, true);
-        Conductor santiago = new Conductor("Santiago", palio);
+        Conductor santiago = new Conductor("Santiago");
+        try{
+            santiago.asignarVehiculo(palio);
+        }catch(FlotaException e){
+            System.out.println(e.getMessage());
+        }
         try {
             splinterVehiculos.aniadirConductor(santiago);
         } catch (FlotaException e){
@@ -59,13 +81,33 @@ public class Main {
         }
 
 
+
         Autobus autobus1 = new Autobus("fg 456 kj", 40, 100);
-        Conductor sebastian = new Conductor("Sebastian", autobus1);
+        Conductor sebastian = new Conductor("Sebastian");
+        try{
+            sebastian.asignarVehiculo(autobus1);
+        }catch(FlotaException e){
+            System.out.println(e.getMessage());
+        }
         try {
             splinterVehiculos.aniadirConductor(sebastian);
         } catch (FlotaException e){
             System.out.println(e.getMessage());
         }
+
+
+        Conductor francoDemare = new Conductor("Franco Demare");
+        try{
+            francoDemare.asignarVehiculo(autobus1);
+        }catch(FlotaException e){
+            System.out.println(e.getMessage());
+        }
+        try {
+            splinterVehiculos.aniadirConductor(francoDemare);
+        } catch (FlotaException e){
+            System.out.println(e.getMessage());
+        }
+
 
 
         Cliente cliente1 = new Cliente("Franco",21,86,false,true,false, false);
@@ -145,7 +187,13 @@ public class Main {
 
         Imprimir impresora= new Imprimir();
         impresora.mostrarRankingPuntos(splinterVehiculos.rankingPuntuacion(), "RANKING DE PUNTOS");
+
         impresora.mostrarRankingViajes(splinterVehiculos.rankingCantViajes(), "RANKING DE CANTIDAD DE VIAJES");
+
+
+
+
+
 
     }
 }
